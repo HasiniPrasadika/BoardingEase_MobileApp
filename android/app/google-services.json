@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "918022856169",
+    "project_id": "boardingease-506f1",
+    "storage_bucket": "boardingease-506f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918022856169:android:53dc2b1b65a0c3ef647f78",
+        "android_client_info": {
+          "package_name": "com.example.boarding_ease"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChwMFxCwufwiF78LvNPTvi-YwDe3Isc1s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:boarding_ease/login.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class SignupBox extends StatelessWidget {
+  const SignupBox({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SafeArea(
-        child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/theme.jpg"),
-              fit: BoxFit.cover,
+    return SafeArea(
+      child: Stack(
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/theme.jpg"),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-          child: Scaffold(
+          Scaffold(
             backgroundColor: Colors.transparent,
-            body: Center(
+            body: Align(
+              alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.only(top: 330),
+                padding: const EdgeInsets.only(bottom: 10),
                 child: Container(
                   width: 330,
                   height: 400,
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
                     borderRadius: BorderRadius.circular(27),
                   ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Padding(
                         padding:
@@ -48,7 +47,7 @@ class MyApp extends StatelessWidget {
                                   color: Color.fromARGB(255, 0, 1, 21)),
                             ),
                             const SizedBox(
-                              width: 25,
+                              width: 20,
                               height: 35,
                             ),
                             Container(
@@ -74,7 +73,7 @@ class MyApp extends StatelessWidget {
                                   color: Color.fromARGB(255, 0, 1, 21)),
                             ),
                             const SizedBox(
-                              width: 25,
+                              width: 18,
                               height: 35,
                             ),
                             Container(
@@ -115,8 +114,8 @@ class MyApp extends StatelessWidget {
                                   SizedBox(
                                     width: 34,
                                     height: 34,
-                                    child: Image.network(
-                                      'http://pngimg.com/uploads/google/google_PNG19635.png',
+                                    child: Image.asset(
+                                      "assets/google.png",
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -138,13 +137,9 @@ class MyApp extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const Text(
-                        "You have an account?",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                            fontSize: 14,
-                            color: Color.fromARGB(255, 153, 152, 152)),
-                      ),
+                      const Padding(
+                          padding: EdgeInsets.only(bottom: 8),
+                          child: AccountButtonOne()),
                       Padding(
                         padding: const EdgeInsets.only(
                           left: 22,
@@ -160,7 +155,7 @@ class MyApp extends StatelessWidget {
                           ),
                           child: const Center(
                             child: Text(
-                              "Signup",
+                              "Sign up",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 18,
@@ -175,8 +170,36 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-        ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class AccountButtonOne extends StatefulWidget {
+  const AccountButtonOne({super.key});
+
+  @override
+  State<AccountButtonOne> createState() => _AccountButtonOneState();
+}
+
+class _AccountButtonOneState extends State<AccountButtonOne> {
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      style: TextButton.styleFrom(
+        textStyle: const TextStyle(fontSize: 15),
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const LoginBox()),
+        );
+      },
+      child: const Text(
+        'You have an account?',
+        style: TextStyle(color: Color.fromARGB(255, 147, 147, 147)),
       ),
     );
   }
