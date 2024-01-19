@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class FormHeaderWidget extends StatelessWidget {
   const FormHeaderWidget({
@@ -27,19 +26,10 @@ class FormHeaderWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: crossAxisAlignment,
       children: [
-        SizedBox(height: 20),
-        Text(
-          "Get On Board!",
-          style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                fontWeight: FontWeight.bold,
-                color: const Color.fromARGB(255, 0, 0, 0),
-              ),
-        ),
-        const SizedBox(height: 10.0),
-        Text(
-          "Your doorway to effortless and transparent boarding house reservations.",
-          style: GoogleFonts.montserrat(fontSize: 20),
-        ),
+        SizedBox(height: heightBetween),
+        Text(title, style: Theme.of(context).textTheme.displayLarge),
+        Text(subTitle,
+            textAlign: textAlign, style: Theme.of(context).textTheme.bodyLarge),
       ],
     );
   }

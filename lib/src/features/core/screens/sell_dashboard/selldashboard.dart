@@ -1,7 +1,11 @@
+import 'package:boarding_ease/src/features/authentication/screens/signup_screen/signup_screen.dart';
+import 'package:boarding_ease/src/features/core/screens/dashboard/dashboard.dart';
 import 'package:boarding_ease/src/features/core/screens/dashboard/home.dart';
 import 'package:boarding_ease/src/features/core/screens/dashboard/widgets/appbar.dart';
 import 'package:boarding_ease/src/features/core/screens/profile/profile_screen.dart';
+
 import 'package:boarding_ease/src/repository/authentication_repository/authentication_repository.dart';
+import 'package:boarding_ease/src/features/core/screens/sell_dashboard/add_boarding.dart';
 
 import 'package:flutter/material.dart';
 
@@ -15,10 +19,7 @@ class SellDashboard extends StatefulWidget {
 class _SellDashboardState extends State<SellDashboard> {
   final List _pages = [
     const Home(),
-    const Center(
-      child: Text("My reservations"),
-    ),
-    const ProfileScreen(),
+    const HouseScreen(),
   ];
 
   int _selectedTab = 0;
@@ -46,16 +47,8 @@ class _SellDashboardState extends State<SellDashboard> {
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'My Boarding Houses',
-            ),
-            BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Publish',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
             ),
           ],
         ),
@@ -66,10 +59,14 @@ class _SellDashboardState extends State<SellDashboard> {
             padding: EdgeInsets.zero,
             children: <Widget>[
               const UserAccountsDrawerHeader(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(
+                      255, 206, 155, 138), // Set your desired color
+                ),
                 accountName: Text("Rashmi Imasha"),
                 accountEmail: Text("rimasha977@gmail.com"),
                 currentAccountPicture: CircleAvatar(
-                  backgroundColor: Colors.orange,
+                  backgroundColor: Color.fromARGB(255, 242, 190, 207),
                   child: Text(
                     "R",
                     style: TextStyle(fontSize: 40.0),
@@ -77,17 +74,14 @@ class _SellDashboardState extends State<SellDashboard> {
                 ),
               ),
               ListTile(
-                leading: const Icon(Icons.home),
-                title: const Text("Home"),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
                 leading: const Icon(Icons.settings),
-                title: const Text("My Reservations"),
+                title: const Text("Reservations"),
                 onTap: () {
                   Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Dashboard()),
+                  );
                 },
               ),
               ListTile(

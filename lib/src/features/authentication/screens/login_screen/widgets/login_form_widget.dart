@@ -43,7 +43,7 @@ class _LoginFormState extends State<LoginForm> {
             TextFormField(
               controller: controller.email,
               decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.person_outline_outlined),
+                  prefixIcon: Icon(Icons.email_outlined),
                   labelText: tEmail,
                   hintText: tEmail,
                   border: OutlineInputBorder()),
@@ -96,7 +96,7 @@ class _LoginFormState extends State<LoginForm> {
                     "LOGIN",
                     style: TextStyle(
                         fontWeight: FontWeight.w400,
-                        fontSize: 18,
+                        fontSize: 15,
                         color: Color.fromARGB(255, 255, 255, 255)),
                   ),
                 ),

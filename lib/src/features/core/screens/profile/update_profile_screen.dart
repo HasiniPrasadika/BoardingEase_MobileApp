@@ -22,6 +22,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
     final controller = Get.put(ProfileController());
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 200, 184, 173),
         leading: IconButton(
             onPressed: () => Get.back(),
             icon: const Icon(LineAwesomeIcons.angle_left)),
@@ -30,6 +31,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
       ),
       body: SingleChildScrollView(
         child: Container(
+          decoration: BoxDecoration(color: Color.fromARGB(255, 200, 184, 173)),
           padding: const EdgeInsets.all(tDefaultSize),
           child: FutureBuilder(
             future: controller.getUserData(),
@@ -65,7 +67,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                               height: 35,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(100),
-                                  color: tPrimaryColor),
+                                  color: Color.fromARGB(255, 206, 155, 138)),
                               child: const Icon(LineAwesomeIcons.camera,
                                   color: Colors.black, size: 20),
                             ),
@@ -129,7 +131,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                                   await controller.updateRecord(userData);
                                 },
                                 style: ElevatedButton.styleFrom(
-                                    backgroundColor: tPrimaryColor,
+                                    backgroundColor:
+                                        Color.fromARGB(255, 206, 155, 138),
                                     side: BorderSide.none,
                                     shape: const StadiumBorder()),
                                 child: const Text(tEditProfile,

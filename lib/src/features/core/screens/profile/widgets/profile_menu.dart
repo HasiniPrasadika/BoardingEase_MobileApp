@@ -11,6 +11,7 @@ class ProfileMenuWidget extends StatelessWidget {
     required this.onPress,
     this.endIcon = true,
     this.textColor,
+    this.iconColor,
   }) : super(key: key);
 
   final String title;
@@ -18,6 +19,7 @@ class ProfileMenuWidget extends StatelessWidget {
   final VoidCallback onPress;
   final bool endIcon;
   final Color? textColor;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {

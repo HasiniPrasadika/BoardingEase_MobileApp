@@ -9,8 +9,8 @@ class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 0.0,
-      backgroundColor: Color.fromARGB(255, 200, 184, 173),
-      foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      foregroundColor: Color.fromARGB(255, 255, 255, 255),
       title: const Row(
         children: [
           Text(

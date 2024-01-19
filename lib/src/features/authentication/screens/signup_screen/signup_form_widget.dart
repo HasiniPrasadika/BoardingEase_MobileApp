@@ -48,7 +48,8 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
             TextFormField(
               controller: controller.phoneNo,
               decoration: const InputDecoration(
-                  label: Text(tPhoneNo), prefixIcon: Icon(Icons.numbers)),
+                  label: Text(tPhoneNo),
+                  prefixIcon: Icon(Icons.phone_android_outlined)),
             ),
             const SizedBox(height: tFormHeight - 20),
             //Password
@@ -64,6 +65,12 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 0, 1, 21),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                ),
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     // Email and password authentication
@@ -85,7 +92,13 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                     SignUpController.instance.createUser(user);
                   }
                 },
-                child: Text(tSignup.toUpperCase()),
+                child: Text(
+                  "SIGNUP",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 15,
+                      color: Color.fromARGB(255, 255, 255, 255)),
+                ),
               ),
             )
           ],

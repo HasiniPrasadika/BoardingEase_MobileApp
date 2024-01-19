@@ -1,4 +1,5 @@
 import 'package:boarding_ease/src/features/core/screens/dashboard/home.dart';
+import 'package:boarding_ease/src/features/core/screens/dashboard/reservation_list.dart';
 import 'package:boarding_ease/src/features/core/screens/sell_dashboard/selldashboard.dart';
 import 'package:boarding_ease/src/features/core/screens/dashboard/widgets/appbar.dart';
 import 'package:boarding_ease/src/features/core/screens/profile/profile_screen.dart';
@@ -17,9 +18,7 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   final List _pages = [
     const Home(),
-    const Center(
-      child: Text("My reservations"),
-    ),
+    const ReservationList(),
     const ProfileScreen(),
   ];
 
@@ -40,8 +39,8 @@ class _DashboardState extends State<Dashboard> {
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedTab,
           onTap: (index) => _changeTab(index),
-          unselectedItemColor: const Color(0xFFB7B7B7),
-          selectedItemColor: const Color(0xFFFE8C68),
+          unselectedItemColor: Color.fromARGB(255, 0, 0, 0),
+          selectedItemColor: Color.fromARGB(255, 198, 140, 120),
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
@@ -64,10 +63,14 @@ class _DashboardState extends State<Dashboard> {
             padding: EdgeInsets.zero,
             children: <Widget>[
               const UserAccountsDrawerHeader(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(
+                      255, 206, 155, 138), // Set your desired color
+                ),
                 accountName: Text("Rashmi Imasha"),
                 accountEmail: Text("rimasha977@gmail.com"),
                 currentAccountPicture: CircleAvatar(
-                  backgroundColor: Colors.orange,
+                  backgroundColor: Color.fromARGB(255, 242, 190, 207),
                   child: Text(
                     "R",
                     style: TextStyle(fontSize: 40.0),
@@ -75,18 +78,15 @@ class _DashboardState extends State<Dashboard> {
                 ),
               ),
               ListTile(
-                leading: const Icon(Icons.home),
-                title: const Text("Home"),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
                 leading: const Icon(Icons.settings),
                 title: const Text("Publish"),
                 onTap: () {
-                  Get.to(() => const SellDashboard());
                   Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SellDashboard()),
+                  );
                 },
               ),
               ListTile(

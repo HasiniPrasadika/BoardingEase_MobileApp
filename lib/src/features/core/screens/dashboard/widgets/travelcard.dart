@@ -1,16 +1,35 @@
+import 'package:boarding_ease/src/features/core/models/house_model.dart';
 import 'package:flutter/material.dart';
 
+import '../house_details.dart';
+
 Widget travelCard(
-    String imgUrl, String hotelName, String location, int rating) {
-  return Card(
-    margin: const EdgeInsets.only(right: 22.0),
-    clipBehavior: Clip.antiAlias,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(30.0),
-    ),
-    elevation: 0.0,
-    child: InkWell(
-      onTap: () {},
+  BuildContext context,
+  String imgUrl,
+  String houseName,
+  String location,
+  int rating,
+  BoardingHouseModel boardingHouse,
+) {
+  return GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => BoardingHouseDetailsScreen(
+            boardingHouse: boardingHouse,
+            // Pass the selected boarding house
+          ),
+        ),
+      );
+    },
+    child: Card(
+      margin: const EdgeInsets.only(right: 22.0),
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30.0),
+      ),
+      elevation: 0.0,
       child: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
@@ -41,7 +60,7 @@ Widget travelCard(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      hotelName,
+                      houseName,
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 22.0,

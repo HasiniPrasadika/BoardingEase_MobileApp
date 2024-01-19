@@ -40,7 +40,7 @@ class ProfileScreen extends StatelessWidget {
                     height: 35,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
-                        color: tPrimaryColor),
+                        color: Color.fromARGB(255, 206, 155, 138)),
                     child: const Icon(
                       LineAwesomeIcons.alternate_pencil,
                       color: Colors.black,
@@ -63,7 +63,7 @@ class ProfileScreen extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () => Get.to(() => const UpdateProfileScreen()),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: tPrimaryColor,
+                    backgroundColor: Color.fromARGB(255, 206, 155, 138),
                     side: BorderSide.none,
                     shape: const StadiumBorder()),
                 child: const Text(tEditProfile,
@@ -76,17 +76,23 @@ class ProfileScreen extends StatelessWidget {
 
             /// -- MENU
             ProfileMenuWidget(
-                title: "Settings", icon: LineAwesomeIcons.cog, onPress: () {}),
+              title: "Settings",
+              icon: LineAwesomeIcons.cog,
+              onPress: () {},
+              iconColor: Color.fromARGB(255, 206, 155, 138),
+            ),
 
             const Divider(),
             const SizedBox(height: 10),
             ProfileMenuWidget(
                 title: "Information",
                 icon: LineAwesomeIcons.info,
-                onPress: () {}),
+                onPress: () {},
+                iconColor: Color.fromARGB(255, 206, 155, 138)),
+
             ProfileMenuWidget(
                 title: "Logout",
-                icon: LineAwesomeIcons.alternate_sign_out,
+                icon: Icons.logout_outlined,
                 textColor: Colors.red,
                 endIcon: false,
                 onPress: () {
@@ -110,7 +116,8 @@ class ProfileScreen extends StatelessWidget {
                     cancel: OutlinedButton(
                         onPressed: () => Get.back(), child: const Text("No")),
                   );
-                }),
+                },
+                iconColor: Color.fromARGB(255, 206, 155, 138)),
           ],
         ),
       ),

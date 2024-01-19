@@ -13,25 +13,41 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.all(tDefaultSize),
-            child: const Column(
-              children: [
-                FormHeaderWidget(
-                  image: tWelcomeScreenImage,
-                  title: tSignUpTitle,
-                  subTitle: tSignUpSubTitle,
-                  imageHeight: 0.15,
-                ),
-                SignUpFormWidget(),
-                SignUpFooterWidget(),
-              ],
+      child: Stack(children: [
+        Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(tGetStartedImage),
+              fit: BoxFit.cover,
+              opacity: 20,
             ),
           ),
         ),
-      ),
+        Container(
+          decoration: BoxDecoration(
+              color: Color.fromARGB(255, 254, 233, 199).withOpacity(0.7)),
+        ),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SingleChildScrollView(
+            child: Container(
+              padding: const EdgeInsets.all(tDefaultSize),
+              child: const Column(
+                children: [
+                  FormHeaderWidget(
+                    image: tWelcomeScreenImage,
+                    title: tSignUpTitle,
+                    subTitle: tSignUpSubTitle,
+                    imageHeight: 0.15,
+                  ),
+                  SignUpFormWidget(),
+                  SignUpFooterWidget(),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ]),
     );
   }
 }
